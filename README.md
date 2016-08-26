@@ -1,24 +1,12 @@
-# README
+# True Facts
+This rails application is designed to showcase that information found on the internet
+is just about as good as it gets.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## To view
+Clone it onto your machine and fire up a `rails s` *OR* Check it out [here](https://f-quiz-two-dan-pow.herokuapp.com/)
 
-Things you may want to cover:
+##Features
+Facts are randomly pulled from the database on page load.
+Facts are added to a postgres database using `simple_form`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is rails 5 at it's best.
