@@ -1,0 +1,60 @@
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+@import 'https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Pacifico';
+
+body{
+  background: #2c3e50;
+  color: #ecf0f1;
+  font-family: "Love Ya Like A Sister", comic sans;
+}
+header{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: .825rem;
+}
+
+.logoish{
+  font-family: 'Pacifico', cursive;
+  font-size: 2.45rem;
+}
+
+.btn-dan {
+  color: #ecf0f1;
+  background-color: #1abc9c;
+  box-shadow: 0px 30px 50px   -20px rgba(13,94,78, .7);
+  transition: ease all 150ms;
+}
+
+.btn-dan:hover {
+  color: #ecf0f1;
+    background-color: #16b29f;
+}
+.modal-dialog{
+  color: #5c5a5b;
+}
+
+.fact{
+  max-width:960px;
+  width: 100%;
+  margin: 6rem auto;
+  text-align: center;
+  font-family: "Love Ya Like A Sister", comic sans;
+
+  h2{
+    font-size: 6rem;
+  }
+
+  h5{
+    margin-top: 3rem;
+  }
+
+}
+
+
+.typed-cursor{
+    display: none;
+}

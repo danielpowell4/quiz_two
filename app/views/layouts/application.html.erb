@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QuizTwo</title>
+    <%= csrf_meta_tags %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <header>
+    <div class="col-xs-4 logoish">
+      True Facts
+    </div>
+    <div class="col-xs-2">
+      <!-- Button trigger modal -->
+      <%= link_to 'Invent Fact', '#', data: {toggle: 'modal', target: '#factModal'}, class: "btn btn-dan" %>
+    </div>
+  </header>
+
+  <body>
+    <%= yield %>
+  </body>
+
+  <!-- Modal -->
+<div class="modal fade" id="factModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="factModalLabel">Add a fact. Keep it truthy.</h4>
+      </div>
+      <%= simple_form_for Fact.new do |f| %>
+        <div class="modal-body">
+          <%= f.input :name, label: "121+% Truth Only.", placeholder: "Puppies know the 17 original human languages at birth. That's why they learn so fast." %>
+          <br />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit 'Create', class: 'btn btn-dan' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</html>

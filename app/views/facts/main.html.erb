@@ -1,0 +1,11 @@
+<div class="fact"><h2><%= @fact.name %></h2><h5>Refresh the page to learn again!</h5></div>
+
+<script>
+
+$(function(){
+        $(".fact h2").typed({
+            strings: ["<%= @fact.name %>"],
+            typeSpeed: 140
+        });
+    });
+</script>
