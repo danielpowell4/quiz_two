@@ -29,6 +29,13 @@ header{
   transition: ease all 150ms;
 }
 
+button.btn-dan{
+  margin-top: 2rem;
+  padding: 1rem 4rem;
+  font-size: 2rem;
+  font-family: 'Pacifico', inherit;
+}
+
 .btn-dan:hover {
   color: #ecf0f1;
     background-color: #16b29f;

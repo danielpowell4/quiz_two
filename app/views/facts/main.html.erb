@@ -1,11 +1,57 @@
-<div class="fact"><h2><%= @fact.name %></h2><h5>Refresh the page to learn more of <br/>what <strong>many people</strong> are really saying!</h5></div>
+<div class="fact">
+  <h2></h2>
+  <h5>What are many people saying??</h5>
+  <button id="next-quote" class="btn btn-dan">
+    Find out!
+  </button>
+</div>
+
 
 <script>
 
-$(function(){
-        $(".fact h2").typed({
-            strings: ["<%= @fact.name %>"],
-            typeSpeed: 72
-        });
+  /* -- setup variables -- */
+  var facts = [];
+  var quoteCount = 0;
+
+  /* -- type current fact to screen -- */
+  function typeFact(){
+    $(".fact h2").typed({
+        strings: [facts[quoteCount]], // type first quote
+        typeSpeed: 72
     });
+  }
+
+  /* --- get json + type first fact --- */
+
+  function firstQuote(){
+    $.getJSON( "/facts.json", function( data ) { // getJSON from 'API'
+      $.each( data, function( index, fact ) {
+        facts.push( fact.name );  // place quotes in facts
+        quoteCount = 0; // reset quoteCount to zero
+        typeFact();
+      });
+    });
+    console.log('firstQuote ran')
+  }
+
+  /* --- on page load --- */
+
+  $(function(){
+
+    /* - run first API call - */
+    firstQuote();
+
+    /* - act approp after btn clicked - */
+    $('#next-quote').click(function(){
+      if (quoteCount <= 9) { // 10 quotes come in at a time so facts[9]...
+        quoteCount ++;
+        typeFact();
+      }
+      else {
+        firstQuote();
+      }
+    });
+
+  });
+
 </script>

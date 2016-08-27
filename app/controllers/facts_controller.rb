@@ -1,8 +1,11 @@
 class FactsController < ApplicationController
   def main
-    @fact = Fact.order("RANDOM()").first
   end
 
+  def index
+    @facts = Fact.order("RANDOM()").sample(10)
+    render json: @facts
+  end
 
   def create
     @fact = Fact.create(fact_params)
