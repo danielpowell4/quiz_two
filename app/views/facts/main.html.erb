@@ -34,6 +34,18 @@
     console.log('firstQuote ran')
   }
 
+  /* --- handle user interactions --- */
+  function nextQuote(){
+    if (quoteCount <= 9) { // 10 quotes come in at a time so facts[9]...
+      quoteCount ++;
+      typeFact();
+    }
+    else {
+      firstQuote();
+    }
+  }
+
+
   /* --- on page load --- */
 
   $(function(){
@@ -41,15 +53,14 @@
     /* - run first API call - */
     firstQuote();
 
-    /* - act approp after btn clicked - */
+    /* - on btn click - */
     $('#next-quote').click(function(){
-      if (quoteCount <= 9) { // 10 quotes come in at a time so facts[9]...
-        quoteCount ++;
-        typeFact();
-      }
-      else {
-        firstQuote();
-      }
+      nextQuote();
+    });
+
+    /* - on fact section swipe - */
+    $(".fact h2").on("swiperight",function(event){
+      nextQuote();
     });
 
   });
